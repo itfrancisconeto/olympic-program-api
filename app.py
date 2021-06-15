@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
@@ -23,6 +23,11 @@ def pegaModalidadesJSON():
 
 #def pegaDetalhesModalidadeJSON():
 #https://olympics.com/tokyo-2020/en/schedule/badminton-schedule
+
+
+@app.route("/")
+def index():
+    return render_template('index.html')
 
 
 @app.route("/modalidades", methods=["GET"])
